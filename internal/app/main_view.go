@@ -324,16 +324,18 @@ func (a *clipApp) flushPendingToast(c *ui.Context) {
 	sa := shadowAlpha(t, 0.12, 0.32)
 	ui.ToastViewportBase(c, func(viewport ui.Element, toasts []ui.Toast) {
 		viewport.Top(52).Justify(ui.Start).AlignItems(ui.Center).Gap(6)
+		maxW := max(240, a.panelWidth()-48)
 		for _, ts := range toasts {
 			p := ui.ToastBase(c, ts)
 			op := p.Root.Animate("toast-opacity", 1, 150*time.Millisecond)
-			p.Root.Row().AlignItems(ui.Center).Gap(8).
-				Padding(8, 14).Radius(radiusCard).
+			p.Root.Row().Justify(ui.Center).AlignItems(ui.Center).Gap(8).
+				MinWidth(140).MaxWidth(maxW).
+				Padding(11, 20).Radius(radiusCard).
 				Background(a.floatingSurface(c, t)).Border(1, t.Border).
 				Shadow(0, 6, 18, 0, ui.RGBA(0, 0, 0, sa)).
 				Opacity(op).
 				Children(func() {
-					ui.Text(c, ts.Title).FontSize(12.5).FontWeight(500).TextColor(t.Text)
+					ui.Text(c, ts.Title).FontSize(13.5).FontWeight(500).TextColor(t.Text).Wrap()
 				})
 		}
 	})
