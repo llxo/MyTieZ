@@ -1778,6 +1778,182 @@ func (msgs Messages) SettingsOpenDirErr(err string) string {
 	return Catalog.Format(msgs.locale, "settingsOpenDirErr", map[string]any{"err": err})
 }
 
+// SettingsBackup says "备份与恢复"
+// in the language the app shows.
+func SettingsBackup() string { return In(i18n.Locale()).SettingsBackup() }
+
+// SettingsBackup says "备份与恢复"
+// in the language of msgs.
+func (msgs Messages) SettingsBackup() string {
+	return Catalog.Format(msgs.locale, "settingsBackup", nil)
+}
+
+// SettingsExportBtn says "导出"
+// in the language the app shows.
+func SettingsExportBtn() string { return In(i18n.Locale()).SettingsExportBtn() }
+
+// SettingsExportBtn says "导出"
+// in the language of msgs.
+func (msgs Messages) SettingsExportBtn() string {
+	return Catalog.Format(msgs.locale, "settingsExportBtn", nil)
+}
+
+// SettingsImportBtn says "导入"
+// in the language the app shows.
+func SettingsImportBtn() string { return In(i18n.Locale()).SettingsImportBtn() }
+
+// SettingsImportBtn says "导入"
+// in the language of msgs.
+func (msgs Messages) SettingsImportBtn() string {
+	return Catalog.Format(msgs.locale, "settingsImportBtn", nil)
+}
+
+// SettingsExportDialogTitle says "导出剪贴板备份"
+// in the language the app shows.
+func SettingsExportDialogTitle() string { return In(i18n.Locale()).SettingsExportDialogTitle() }
+
+// SettingsExportDialogTitle says "导出剪贴板备份"
+// in the language of msgs.
+func (msgs Messages) SettingsExportDialogTitle() string {
+	return Catalog.Format(msgs.locale, "settingsExportDialogTitle", nil)
+}
+
+// SettingsImportDialogTitle says "选择剪贴板备份"
+// in the language the app shows.
+func SettingsImportDialogTitle() string { return In(i18n.Locale()).SettingsImportDialogTitle() }
+
+// SettingsImportDialogTitle says "选择剪贴板备份"
+// in the language of msgs.
+func (msgs Messages) SettingsImportDialogTitle() string {
+	return Catalog.Format(msgs.locale, "settingsImportDialogTitle", nil)
+}
+
+// SettingsBackupFilterZip says "ZIP 备份文件"
+// in the language the app shows.
+func SettingsBackupFilterZip() string { return In(i18n.Locale()).SettingsBackupFilterZip() }
+
+// SettingsBackupFilterZip says "ZIP 备份文件"
+// in the language of msgs.
+func (msgs Messages) SettingsBackupFilterZip() string {
+	return Catalog.Format(msgs.locale, "settingsBackupFilterZip", nil)
+}
+
+// SettingsExportPasswordTitle says "设置备份密码（可选）"
+// in the language the app shows.
+func SettingsExportPasswordTitle() string { return In(i18n.Locale()).SettingsExportPasswordTitle() }
+
+// SettingsExportPasswordTitle says "设置备份密码（可选）"
+// in the language of msgs.
+func (msgs Messages) SettingsExportPasswordTitle() string {
+	return Catalog.Format(msgs.locale, "settingsExportPasswordTitle", nil)
+}
+
+// SettingsExportPasswordDesc says "留空则明文导出；设置密码后将使用 AES-256 加密所有记录与图片。"
+// in the language the app shows.
+func SettingsExportPasswordDesc() string { return In(i18n.Locale()).SettingsExportPasswordDesc() }
+
+// SettingsExportPasswordDesc says "留空则明文导出；设置密码后将使用 AES-256 加密所有记录与图片。"
+// in the language of msgs.
+func (msgs Messages) SettingsExportPasswordDesc() string {
+	return Catalog.Format(msgs.locale, "settingsExportPasswordDesc", nil)
+}
+
+// SettingsExportNext says "下一步"
+// in the language the app shows.
+func SettingsExportNext() string { return In(i18n.Locale()).SettingsExportNext() }
+
+// SettingsExportNext says "下一步"
+// in the language of msgs.
+func (msgs Messages) SettingsExportNext() string {
+	return Catalog.Format(msgs.locale, "settingsExportNext", nil)
+}
+
+// SettingsImportPasswordTitle says "输入备份密码"
+// in the language the app shows.
+func SettingsImportPasswordTitle() string { return In(i18n.Locale()).SettingsImportPasswordTitle() }
+
+// SettingsImportPasswordTitle says "输入备份密码"
+// in the language of msgs.
+func (msgs Messages) SettingsImportPasswordTitle() string {
+	return Catalog.Format(msgs.locale, "settingsImportPasswordTitle", nil)
+}
+
+// SettingsImportPasswordDesc says "该备份文件已加密，请输入导出时设置的密码。"
+// in the language the app shows.
+func SettingsImportPasswordDesc() string { return In(i18n.Locale()).SettingsImportPasswordDesc() }
+
+// SettingsImportPasswordDesc says "该备份文件已加密，请输入导出时设置的密码。"
+// in the language of msgs.
+func (msgs Messages) SettingsImportPasswordDesc() string {
+	return Catalog.Format(msgs.locale, "settingsImportPasswordDesc", nil)
+}
+
+// SettingsBackupPasswordPlaceholder says "输入密码"
+// in the language the app shows.
+func SettingsBackupPasswordPlaceholder() string {
+	return In(i18n.Locale()).SettingsBackupPasswordPlaceholder()
+}
+
+// SettingsBackupPasswordPlaceholder says "输入密码"
+// in the language of msgs.
+func (msgs Messages) SettingsBackupPasswordPlaceholder() string {
+	return Catalog.Format(msgs.locale, "settingsBackupPasswordPlaceholder", nil)
+}
+
+// SettingsBackupWrongPassword says "备份密码错误，请重试"
+// in the language the app shows.
+func SettingsBackupWrongPassword() string { return In(i18n.Locale()).SettingsBackupWrongPassword() }
+
+// SettingsBackupWrongPassword says "备份密码错误，请重试"
+// in the language of msgs.
+func (msgs Messages) SettingsBackupWrongPassword() string {
+	return Catalog.Format(msgs.locale, "settingsBackupWrongPassword", nil)
+}
+
+// SettingsExportDone says "已导出 {count} 条记录（含 {images} 张图片）"
+// in the language the app shows.
+func SettingsExportDone(count string, images string) string {
+	return In(i18n.Locale()).SettingsExportDone(count, images)
+}
+
+// SettingsExportDone says "已导出 {count} 条记录（含 {images} 张图片）"
+// in the language of msgs.
+func (msgs Messages) SettingsExportDone(count string, images string) string {
+	return Catalog.Format(msgs.locale, "settingsExportDone", map[string]any{"count": count, "images": images})
+}
+
+// SettingsExportErr says "导出失败: {err}"
+// in the language the app shows.
+func SettingsExportErr(err string) string { return In(i18n.Locale()).SettingsExportErr(err) }
+
+// SettingsExportErr says "导出失败: {err}"
+// in the language of msgs.
+func (msgs Messages) SettingsExportErr(err string) string {
+	return Catalog.Format(msgs.locale, "settingsExportErr", map[string]any{"err": err})
+}
+
+// SettingsImportDone says "已导入 {imported} 条记录，跳过 {skipped} 条重复"
+// in the language the app shows.
+func SettingsImportDone(imported string, skipped string) string {
+	return In(i18n.Locale()).SettingsImportDone(imported, skipped)
+}
+
+// SettingsImportDone says "已导入 {imported} 条记录，跳过 {skipped} 条重复"
+// in the language of msgs.
+func (msgs Messages) SettingsImportDone(imported string, skipped string) string {
+	return Catalog.Format(msgs.locale, "settingsImportDone", map[string]any{"imported": imported, "skipped": skipped})
+}
+
+// SettingsImportErr says "导入失败: {err}"
+// in the language the app shows.
+func SettingsImportErr(err string) string { return In(i18n.Locale()).SettingsImportErr(err) }
+
+// SettingsImportErr says "导入失败: {err}"
+// in the language of msgs.
+func (msgs Messages) SettingsImportErr(err string) string {
+	return Catalog.Format(msgs.locale, "settingsImportErr", map[string]any{"err": err})
+}
+
 // SettingsClearBtn says "清空"
 // in the language the app shows.
 func SettingsClearBtn() string { return In(i18n.Locale()).SettingsClearBtn() }

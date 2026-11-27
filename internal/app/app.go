@@ -135,6 +135,12 @@ type clipApp struct {
 	saveMu              sync.Mutex
 	saveQueue           []func() (string, error)
 	saveRunning         bool
+	backupDialogOpen    bool
+	backupDialogMode    string // "export" | "import"
+	backupPassword      string
+	backupImportPath    string
+	backupBusy          bool
+	backupPassHandle    ui.Handle
 }
 
 func newClipApp(st *store.Store, iconPNG []byte) *clipApp {

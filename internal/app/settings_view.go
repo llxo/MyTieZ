@@ -251,6 +251,35 @@ func (a *clipApp) settingsView(c *ui.Context) {
 					a.renderConfirmActionRow(c, msgs.SettingsClearAll(), "", "clear_all", msgs.SettingsClearAllBtn(), msgs.SettingsClearAllConfirm(), func() {
 						a.clearAll()
 					})
+					a.renderSettingRow(c, msgs.SettingsBackup(), "", func() {
+						ui.Row(c).AlignItems(ui.Center).Gap(6).Children(func() {
+							expBtn := ui.ButtonBase(c).Height(pillHeight).Padding(0, 12).Radius(radiusGroup).Label(msgs.SettingsExportBtn())
+							expBg := t.Surface
+							if expBtn.Hovered() {
+								expBg = t.SurfaceHover
+							}
+							expBtn.Background(expBg).Border(1, t.Border.Alpha(0.7)).Transition(colorTransition).
+								OnClick(func() {
+									a.startExportBackup()
+								}).
+								Children(func() {
+									ui.Text(c, msgs.SettingsExportBtn()).FontSize(13).FontWeight(500).TextColor(t.Text)
+								})
+
+							impBtn := ui.ButtonBase(c).Height(pillHeight).Padding(0, 12).Radius(radiusGroup).Label(msgs.SettingsImportBtn())
+							impBg := t.Surface
+							if impBtn.Hovered() {
+								impBg = t.SurfaceHover
+							}
+							impBtn.Background(impBg).Border(1, t.Border.Alpha(0.7)).Transition(colorTransition).
+								OnClick(func() {
+									a.startImportBackup()
+								}).
+								Children(func() {
+									ui.Text(c, msgs.SettingsImportBtn()).FontSize(13).FontWeight(500).TextColor(t.Text)
+								})
+						})
+					})
 				})
 
 				// 底部恢复初始设置与版本信息
@@ -298,6 +327,7 @@ func (a *clipApp) settingsView(c *ui.Context) {
 		})
 
 		a.flushPendingToast(c)
+		a.renderBackupDialog(c)
 	})
 }
 
