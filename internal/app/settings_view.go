@@ -294,7 +294,6 @@ func (a *clipApp) settingsView(c *ui.Context) {
 
 					ui.Column(c).AlignItems(ui.Center).Gap(6).Children(func() {
 						ui.Text(c, "MyTieZ v"+appVersion()).FontSize(13).TextColor(t.TextMuted)
-						ui.Text(c, msgs.SettingsTagline()).FontSize(13).TextColor(t.TextMuted)
 						a.renderUpdateControls(c, msgs)
 					})
 				})
@@ -350,10 +349,6 @@ func (a *clipApp) renderUpdateControls(c *ui.Context, msgs locales.Messages) {
 		Children(func() {
 			ui.Text(c, btnLabel).FontSize(12.5).FontWeight(500).TextColor(fg)
 		})
-
-	if a.updateStatus != "" {
-		ui.Text(c, a.updateStatus).FontSize(12).TextColor(t.TextMuted).Wrap().MaxLines(2)
-	}
 }
 
 func (a *clipApp) setMaxHistory(val int) {

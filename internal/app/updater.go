@@ -2,7 +2,6 @@ package app
 
 import (
 	"context"
-	"strconv"
 	"time"
 
 	"mytiez/locales"
@@ -34,14 +33,11 @@ func (a *clipApp) checkForUpdates(manual bool) {
 	}
 	if !mygo.App.IsReady() || !mygo.Updater.Enabled() {
 		if manual {
-			a.updateStatus = locales.SettingsUpdateDisabled()
+			a.setStatus(locales.SettingsUpdateDisabled())
 		}
 		return
 	}
 	a.updateChecking = true
-	if manual {
-		a.updateStatus = locales.SettingsCheckingUpdate()
-	}
 	panel := a.panel
 	go func() {
 		ctx, cancel := context.WithTimeout(context.Background(), updateCheckTimeout)
@@ -54,7 +50,7 @@ func (a *clipApp) checkForUpdates(manual bool) {
 			a.updateChecking = false
 			if err != nil {
 				if manual {
-					a.updateStatus = locales.SettingsUpdateErr(err.Error())
+					a.setStatus(locales.SettingsUpdateErr(err.Error()))
 				}
 				return
 			}
@@ -64,13 +60,12 @@ func (a *clipApp) checkForUpdates(manual bool) {
 				a.availableUpdate = nil
 				a.updateReady = false
 				if manual {
-					a.updateStatus = locales.SettingsUpToDate()
+					a.setStatus(locales.SettingsUpToDate())
 				}
 				return
 			}
 			a.availableUpdate = up
 			a.updateReady = false
-			a.updateStatus = locales.SettingsUpdateAvailable(up.Version)
 			if !manual {
 				a.setStatus(locales.SettingsUpdateAvailable(up.Version))
 			}
@@ -85,7 +80,6 @@ func (a *clipApp) installAvailableUpdate() {
 	up := a.availableUpdate
 	a.updateInstalling = true
 	a.updateProgress = 0
-	a.updateStatus = locales.SettingsDownloadingUpdate("0")
 	panel := a.panel
 
 	go func() {
@@ -106,7 +100,6 @@ func (a *clipApp) installAvailableUpdate() {
 			lastPct = pct
 			panel.Update(func() {
 				a.updateProgress = pct
-				a.updateStatus = locales.SettingsDownloadingUpdate(strconv.Itoa(pct))
 			})
 		})
 		if panel == nil {
@@ -115,11 +108,10 @@ func (a *clipApp) installAvailableUpdate() {
 		panel.Update(func() {
 			a.updateInstalling = false
 			if err != nil {
-				a.updateStatus = locales.SettingsUpdateErr(err.Error())
+				a.setStatus(locales.SettingsUpdateErr(err.Error()))
 				return
 			}
 			a.updateReady = true
-			a.updateStatus = locales.SettingsUpdateAvailable(up.Version)
 		})
 	}()
 }

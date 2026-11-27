@@ -108,7 +108,6 @@ type clipApp struct {
 	updateProgress     int
 	updateReady        bool
 	availableUpdate    *mygo.Update
-	updateStatus       string
 
 	showSettings        bool
 	confirmClearOpen    bool

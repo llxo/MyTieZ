@@ -1888,16 +1888,6 @@ func (msgs Messages) SettingsResetDone() string {
 	return Catalog.Format(msgs.locale, "settingsResetDone", nil)
 }
 
-// SettingsTagline says "让复制与粘贴，保持有序"
-// in the language the app shows.
-func SettingsTagline() string { return In(i18n.Locale()).SettingsTagline() }
-
-// SettingsTagline says "让复制与粘贴，保持有序"
-// in the language of msgs.
-func (msgs Messages) SettingsTagline() string {
-	return Catalog.Format(msgs.locale, "settingsTagline", nil)
-}
-
 // SettingsCheckUpdate says "检查更新"
 // in the language the app shows.
 func SettingsCheckUpdate() string { return In(i18n.Locale()).SettingsCheckUpdate() }
