@@ -248,9 +248,6 @@ func (a *clipApp) settingsView(c *ui.Context) {
 								ui.Text(c, msgs.SettingsOpenDir()).FontSize(13).FontWeight(500).TextColor(t.Text)
 							})
 					})
-					a.renderConfirmActionRow(c, msgs.SettingsClearUnpinned(), "", "clear_unpinned", msgs.SettingsClearBtn(), msgs.SettingsClearConfirm(), func() {
-						a.clearUnpinned()
-					})
 					a.renderConfirmActionRow(c, msgs.SettingsClearAll(), "", "clear_all", msgs.SettingsClearAllBtn(), msgs.SettingsClearAllConfirm(), func() {
 						a.clearAll()
 					})

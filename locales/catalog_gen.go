@@ -1778,16 +1778,6 @@ func (msgs Messages) SettingsOpenDirErr(err string) string {
 	return Catalog.Format(msgs.locale, "settingsOpenDirErr", map[string]any{"err": err})
 }
 
-// SettingsClearUnpinned says "清空记录"
-// in the language the app shows.
-func SettingsClearUnpinned() string { return In(i18n.Locale()).SettingsClearUnpinned() }
-
-// SettingsClearUnpinned says "清空记录"
-// in the language of msgs.
-func (msgs Messages) SettingsClearUnpinned() string {
-	return Catalog.Format(msgs.locale, "settingsClearUnpinned", nil)
-}
-
 // SettingsClearBtn says "清空"
 // in the language the app shows.
 func SettingsClearBtn() string { return In(i18n.Locale()).SettingsClearBtn() }
@@ -1796,26 +1786,6 @@ func SettingsClearBtn() string { return In(i18n.Locale()).SettingsClearBtn() }
 // in the language of msgs.
 func (msgs Messages) SettingsClearBtn() string {
 	return Catalog.Format(msgs.locale, "settingsClearBtn", nil)
-}
-
-// SettingsClearConfirm says "确认清空"
-// in the language the app shows.
-func SettingsClearConfirm() string { return In(i18n.Locale()).SettingsClearConfirm() }
-
-// SettingsClearConfirm says "确认清空"
-// in the language of msgs.
-func (msgs Messages) SettingsClearConfirm() string {
-	return Catalog.Format(msgs.locale, "settingsClearConfirm", nil)
-}
-
-// SettingsClearUnpinnedDone says "已清空未置顶且无标签的剪贴板记录"
-// in the language the app shows.
-func SettingsClearUnpinnedDone() string { return In(i18n.Locale()).SettingsClearUnpinnedDone() }
-
-// SettingsClearUnpinnedDone says "已清空未置顶且无标签的剪贴板记录"
-// in the language of msgs.
-func (msgs Messages) SettingsClearUnpinnedDone() string {
-	return Catalog.Format(msgs.locale, "settingsClearUnpinnedDone", nil)
 }
 
 // SettingsClearAll says "清空全部记录"
