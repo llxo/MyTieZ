@@ -10,5 +10,8 @@
   "updates": {
     "publicKey": "1NG7C+w9Dh8JQmgJgdfSpVBwqdOEcLECz+L22+I3el8=",
     "github": "llxo/MyTieZ"
+  },
+  "windows": {
+    "installerInclude": "resources/installer.nsh"
   }
 }
